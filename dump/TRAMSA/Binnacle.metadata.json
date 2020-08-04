@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"TRAMSA.Binnacle"}],"uuid":"0d6ce517fa7a4a35bef97d95671bed8e"}

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"TRAMSA.Raw_Material"}],"uuid":"029455bb783d47d3b20cc10b965020b8"}

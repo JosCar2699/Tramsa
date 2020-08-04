@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"TRAMSA.Warehouse"}],"uuid":"46d4ef7efa2f4c30b94f04a49d4b6613"}

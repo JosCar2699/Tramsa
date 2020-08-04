@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"TRAMSA.Order_Detail"}],"uuid":"1dc7ecf24a1d4bbb8ba438249d51280c"}
