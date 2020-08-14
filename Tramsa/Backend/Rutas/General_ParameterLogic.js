@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const General_Parameter = require('../Modelos/**');
+const General_Parameter = require('../Modelos/General_Parameter');
 
 router.get('/', async(req, res) => {
     const General_Parameters = await General_Parameter.find();

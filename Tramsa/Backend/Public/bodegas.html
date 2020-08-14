@@ -135,7 +135,7 @@
                     <a href="#pageCajas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cajas</a>
                     <ul class="collapse list-unstyled" id="pageCajas">
                         <li>
-                            <a href="cajas.html">***Apertura de Cajas****</a>
+                            <a href="caja.html">***Apertura de Cajas****</a>
                         </li>
                         <li>
                             <a href="">***Arqueo de Cajas ***</a>
@@ -309,45 +309,45 @@
                 </table>
                 <h1 id="titulo">Agregar datos de la Tabla</h1>
 
+                <form id="Bodega-form" class="card card-body">
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Codigo Bodega</label>
+                        <input id="Code" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Nombre</label>
+                        <input id="Name" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Nombre Corto</label>
+                        <input id="Shortname" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Alias</label>
+                        <input id="Nickname" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Ubicacion</label>
+                        <input id="Address" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Unidad de Medida</label>
+                        <input id="Measure_Unit" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Tipo de Bodega</label>
+                        <input id="Warehouse_Type" class="form-control" type="text" placeholder="">
+                    </div>
+                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
+                        <label for="formGroupExampleInput">Espacio en Bodega</label>
+                        <input id="Warehouse_Slot" class="form-control" type="text" placeholder="">
+                    </div>
 
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Codigo Bodega</label>
-                    <input id="userIdIpnut" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Nombre</label>
-                    <input id="IdIpnut" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Nombre Corto</label>
-                    <input id="titleIpnut" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Alias</label>
-                    <input id="BodyInput" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Ubicacion</label>
-                    <input id="userIdIpnut" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Unidad de Medida</label>
-                    <input id="IdIpnut" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Tipo de Bodega</label>
-                    <input id="titleIpnut" class="form-control" type="text" placeholder="">
-                </div>
-                <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                    <label for="formGroupExampleInput">Espacio en Bodega</label>
-                    <input id="BodyInput" class="form-control" type="text" placeholder="">
-                </div>
+                    <div class="text-center">
 
-                <div class="text-center">
-
-                    <button id="btnAgregar" type="button" class="btn btn-primary  mt-4 ml-2 col-sm-2">Aceptar</button>
-                </div>
-
+                        <button id="btnAgregar" type="button" class="btn btn-primary  mt-4 ml-2 col-sm-2" v-on:click="Enviar">Aceptar</button>
+                    </div>
+                </form>
 
 
 
@@ -372,9 +372,7 @@
                 $('#example').DataTable();
             });
         </script>
-        <script>
-            src = Js / bodegas.js
-        </script>
+        <script src="js/Logicabodegas.js"></script>
 </body>
 
 </html>
