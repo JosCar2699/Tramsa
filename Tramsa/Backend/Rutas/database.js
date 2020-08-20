@@ -5,3 +5,6 @@ mongoose.connect('mongodb://localhost/TRAMSA', {
     })
     .then(db => console.log('Se conectó a la base'))
     .catch(err => console.error(err));
+
+
+require('../Modelos/Event');
