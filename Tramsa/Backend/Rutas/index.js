@@ -22,4 +22,4 @@ aplicacion.listen(aplicacion.get('port'), () => {
 
 /*Rutas*/
 aplicacion.use('/api/Warehouse', require('./WarehouseLogic'));
-aplicacion.use('/api/User'), require('./UserLogic');
+/*aplicacion.use('/api/User'), require('./UserLogic');*/

@@ -4,8 +4,8 @@ const router = Router();
 const User = require('../Modelos/User');
 
 router.get('/', async(req, res) => {
-    const Warehouses = await Warehouse.find().sort('-_id');;
-    res.json(Warehouses);
+    const Users = await User.find().sort('-_id');;
+    res.json(Users);
 });
 
 router.post('/', async(req, res) => {

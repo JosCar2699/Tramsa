@@ -8,7 +8,7 @@ $(document).ready(function() {
 var logicaBodegas = {
     initGetFormInfo: function() {
         $('#btnAgregar').on('click', function() {
-            var warehouse_Code = $('#Code').val()
+            var warehouse_Code = 'BO' + $('#Code').val()
             var name = $('#Name').val()
             var short_Name = $('#Shortname').val()
             var nickname = $('#Nickname').val()
