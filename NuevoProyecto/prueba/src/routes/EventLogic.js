@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Event');
 
-const Event = require('../Modelos/Event');
 
 router.get('/', async(req, res) => {
     const Events = await Event.find();
+    console.log(Events);
+    res.render('Eventos', { Events: Events });
 });
 
-router.post('/', async(req, res) => {
-    const { Event_Code, Description } = req.body;
-    const newEvent = new Event({ Event_Code, Description })
+router.post('/add-product', async(req, res) => {
+    const newEvent = new Event(req.body);
     await newEvent.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Event = await Event.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;

@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Binnacle');
 
-const Binnacle = require('../Modelos/Binnacle');
 
 router.get('/', async(req, res) => {
     const Binnacles = await Binnacle.find();
+    console.log(Binnacles);
+    res.render('Binarios', { Binnacles: Binnacles });
 });
 
-router.post('/', async(req, res) => {
-    const { User, Datetime, Register_Code, Description } = req.body;
-    const newBinnacle = new Binnacle({ User, Datetime, Register_Code, Description })
+router.post('/add-product', async(req, res) => {
+    const newBinnacle = new Binnacle(req.body);
     await newBinnacle.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Binnacle = await Binnacle.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;

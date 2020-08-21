@@ -277,24 +277,42 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
-                            <td>54</td>
-                            <td>14 Mayo 2020</td>
-                            <td>485963215</td>
-                            <td>Azofeifa</td>
-                            <td>Gonzáles</td>
-                            <td>Pablo</td>
-                            <td>Soltero</td>
-                            <td>87426931</td>
-                            <td>pablazo1@gmail.com</td>
-                            <td>La Rita</td>
-                            <td> <button class="btn btn-primary" id="btnEditar">Editar</button></td>
-                            <td> <button class="btn btn-primary" id="btnEliminar">Eliminar</button></td>
-
-                        </tr>
+                        <%  Client.forEach(function (Client){ %>
 
 
+                            <tr>
+                                <td>
+                                    <%= Client.CUIT %>
+                                </td>
+                                <td>
+                                    <%= Client.Entry_Date %>
+                                </td>
+                                <td>
+                                    <%= Client.Firt_Lastname %>
+                                </td>
+                                <td>
+                                    <%= Client.Second_Lastname %>
+                                </td>
+                                <td>
+                                    <%= Client.Name %>
+                                </td>
+                                <td>
+                                    <%= Client.State %>
+                                </td>
+                                <td>
+                                    <%= Client.Telephone %>
+                                </td>
+                                <td>
+                                    <%= Client.Email %>
+                                </td>
+                                <td>
+                                    <%= Client.Address %>
+                                </td>
+                                <td> <button class="btn btn-primary" id="btnEditar">Editar</button></td>
+                                <td> <button class="btn btn-primary" id="btnEliminar">Eliminar</button></td>
+
+                            </tr>
+                            <%  }) %>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -316,59 +334,47 @@
                 </table>
                 <h1 id="titulo">Agregar datos de la Tabla</h1>
 
-                <form id="Cliente3-form" class="card card-body">
+                <form id="Cliente3-form" class="card card-body" action="/add-product" method="POST">
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                        <label for="formGroupExampleInput">Codigo Identicación</label>
-                        <input id="userIdIpnut" class="form-control" type="text" placeholder="">
+                        <label for="formGroupExampleInput">Identicación</label>
+                        <input id="userIdIpnut" class="form-control" type="text" name="CUIT" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">Fecha ingreso</label>
-                        <input id="IdIpnut" class="form-control" type="text" placeholder="">
-                    </div>
-                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                        <label for="formGroupExampleInput">Doc. Identidad</label>
-                        <input id="titleIpnut" class="form-control" type="text" placeholder="">
+                        <input id="IdIpnut" class="form-control" type="text" name="Entry_Date" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">Primer apellido</label>
-                        <input id="BodyInput" class="form-control" type="text" placeholder="">
+                        <input id="BodyInput" class="form-control" type="text" name="First_Lastname" placeholder="">
                         <label for="formGroupExampleInput">Segundo apellido</label>
-                        <input id="userIdIpnut" class="form-control" type="text" placeholder="">
+                        <input id="userIdIpnut" class="form-control" type="text" name="Second_Lastname" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">Nombre</label>
-                        <input id="IdIpnut" class="form-control" type="text" placeholder="">
+                        <input id="IdIpnut" class="form-control" type="text" name="Name" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">Estado</label>
-                        <input id="titleIpnut" class="form-control" type="text" placeholder="">
+                        <input id="titleIpnut" class="form-control" type="text" name="State" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">Teléfonos</label>
-                        <input id="BodyInput" class="form-control" type="text" placeholder="">
-                    </div>
-                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                        <label for="formGroupExampleInput">Estado</label>
-                        <input id="titleIpnut" class="form-control" type="text" placeholder="">
-                    </div>
-                    <div class="form-group m-4 col-sm-8 mx-auto d-block">
-                        <label for="formGroupExampleInput">Teléfonos</label>
-                        <input id="BodyInput" class="form-control" type="text" placeholder="">
+                        <input id="BodyInput" class="form-control" type="text" name="Telephone" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">E-mail</label>
-                        <input id="userIdIpnut" class="form-control" type="text" placeholder="">
+                        <input id="userIdIpnut" class="form-control" type="text" name="Email" placeholder="">
                     </div>
                     <div class="form-group m-4 col-sm-8 mx-auto d-block">
                         <label for="formGroupExampleInput">Dirección</label>
-                        <input id="IdIpnut" class="form-control" type="text" placeholder="">
+                        <input id="IdIpnut" class="form-control" type="text" name="Address" placeholder="">
                     </div>
 
 
 
                     <div class="text-center">
 
-                        <button id="btnAgregar" type="button" class="btn btn-primary  mt-4 ml-2 col-sm-2">Aceptar</button>
+                        <button id="btnAgregar" type="submit" class="btn btn-primary  mt-4 ml-2 col-sm-2" v-on:click="Enviar">Aceptar</button>
                     </div>
                 </form>
 

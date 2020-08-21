@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Raw_Material');
 
-const Raw_Material = require('../Modelos/Raw_Material');
 
 router.get('/', async(req, res) => {
     const Raw_Materials = await Raw_Material.find();
+    console.log(Raw_Materials);
+    res.render('Materia Prima', { Raw_Materials: Raw_Materials });
 });
 
-router.post('/', async(req, res) => {
-    const { Raw_Material_Code, Name, Stock, Measure_Unit, Raw_Material_Type } = req.body;
-    const newRaw_Material = new Raw_Material({ Raw_Material_Code, Name, Stock, Measure_Unit, Raw_Material_Type })
+router.post('/add-product', async(req, res) => {
+    const newRaw_Material = new Raw_Material(req.body);
     await newRaw_Material.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Raw_Material = await Raw_Material.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;

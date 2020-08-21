@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Client');
 
-const Client = require('../Modelos/Client');
 
 router.get('/', async(req, res) => {
     const Clients = await Client.find();
+    console.log(Clients);
+    res.render('Clientes', { Clients: Clients });
 });
 
-router.post('/', async(req, res) => {
-    const { CUIT, Entry_Date, First_Lastname, Second_Lastname, Name, State, Telephone, Email, Address } = req.body;
-    const newClient = new Client({ CUIT, Entry_Date, First_Lastname, Second_Lastname, Name, State, Telephone, Email, Address })
+router.post('/add-product', async(req, res) => {
+    const newClient = new Client(req.body);
     await newClient.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Client = await Client.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;

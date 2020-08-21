@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Invoice');
 
-const Invoice = require('../Modelos/Invoice');
 
 router.get('/', async(req, res) => {
     const Invoices = await Invoice.find();
+    console.log(Invoices);
+    res.render('Factura', { Invoices: Invoices });
 });
 
-router.post('/', async(req, res) => {
-    const { Company_Name, CUIT, Telephone, Greeting_Message, Company_Address, Invoice_User, Date, Product, Product_Quantity, Discount, Tax, Total } = req.body;
-    const newInvoice = new Invoice({ Company_Name, CUIT, Telephone, Greeting_Message, Company_Address, Invoice_User, Date, Product, Product_Quantity, Discount, Tax, Total })
+router.post('/add-product', async(req, res) => {
+    const newInvoice = new Invoice(req.body);
     await newInvoice.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Invoice = await Invoice.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;

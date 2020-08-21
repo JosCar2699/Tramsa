@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Role');
 
-const Role = require('../Modelos/Role');
 
 router.get('/', async(req, res) => {
     const Roles = await Role.find();
+    console.log(Roles);
+    res.render('Rol', { Roles: Roles });
 });
 
-router.post('/', async(req, res) => {
-    const { Role_Code, Name, State, User_Assigned } = req.body;
-    const newRole = new Role({ Role_Code, Name, State, User_Assigned })
+router.post('/add-product', async(req, res) => {
+    const newRole = new Role(req.body);
     await newRole.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Role = await Role.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;

@@ -1,20 +1,22 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
+const Warehouse = require('../models/Consecutive');
 
-const Consecutive = require('../Modelos/Consecutive');
 
 router.get('/', async(req, res) => {
     const Consecutives = await Consecutive.find();
+    console.log(Consecutives);
+    res.render('Consecutivos', { Consecutives: Consecutives });
 });
 
-router.post('/', async(req, res) => {
-    const { Consecutive_Type, Description, Consecutive_Value } = req.body;
-    const newConsecutive = new Consecutive({ Consecutive_Type, Description, Consecutive_Value })
+router.post('/add-product', async(req, res) => {
+    const newConsecutive = new Consecutive(req.body);
     await newConsecutive.save();
+    res.redirect('/');
 });
 
-router.delete('/:id', async(req, res) => {
-    const Consecutive = await Consecutive.findByIdAndDelete(req.params.id);
-})
+// router.delete('/:id', async(req, res) => {
+//     const Warehouse = await Warehouse.findByIdAndDelete(req.params.id);
+//     res.json({ 'Mensaje': 'Bodega Eliminada' });
+// })
 
 module.exports = router;
